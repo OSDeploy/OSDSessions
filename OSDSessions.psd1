@@ -22,10 +22,10 @@ Author = 'David Segura'
 CompanyName = 'osdeploy.com'
 
 # Copyright statement for this module
-Copyright = '(c) 2018 David Segura osdeploy.com. All rights reserved.'
+Copyright = '(c) 2019 David Segura osdeploy.com. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'Offline Servicing for Windows 10, Windows Server 2016, and Windows Server 2019'
+Description = 'Displays all Packages in Sessions.xml'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.0'
@@ -64,7 +64,7 @@ PowerShellVersion = '5.0'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-Sessions'
+FunctionsToExport = 'Get-OSDSessions'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -90,7 +90,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = @('OSDeploy','OSBuilder','Servicing')
+        Tags = @('OSDeploy','Servicing')
 
         # A URL to the license for this module.
         # LicenseUri = ''

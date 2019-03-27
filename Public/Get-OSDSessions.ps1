@@ -1,11 +1,11 @@
-﻿function Get-Sessions {
+﻿function Get-OSDSessions {
     [CmdletBinding()]
     PARAM (
         [switch]$GridView
     )
 	[xml]$XmlDocument = Get-Content -Path "$env:SystemRoot\Servicing\Sessions\Sessions.xml"
 
-    $Sessions = $XmlDocument.SelectNodes('Sessions/Session') | ForEach-Object {
+    $OSDSessions = $XmlDocument.SelectNodes('Sessions/Session') | ForEach-Object {
         New-Object -Type PSObject -Property @{
             Id = $_.Tasks.Phase.package.id
             KBNumber = $_.Tasks.Phase.package.name
@@ -16,9 +16,9 @@
         }
     }
 
-    $Sessions = $Sessions | Where-Object {$_.Id -like "Package*"}
-    $Sessions | Select-Object -Property Id, KBNumber, TargetState, Client, Status, Complete | Sort-Object Complete -Descending
+    $OSDSessions = $OSDSessions | Where-Object {$_.Id -like "Package*"}
+    $OSDSessions | Select-Object -Property Id, KBNumber, TargetState, Client, Status, Complete | Sort-Object Complete -Descending
 
-    if ($GridView.IsPresent) {Return $Sessions | Select-Object -Property * | Out-GridView}
-    else {Return $Sessions}
+    if ($GridView.IsPresent) {Return $OSDSessions | Select-Object -Property * | Out-GridView}
+    else {Return $OSDSessions}
 }
